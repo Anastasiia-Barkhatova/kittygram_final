@@ -1,19 +1,19 @@
 # flake8: noqa
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
 
-load_dotenv()
+# load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-DEBUG = bool(os.getenv('DEBUG', 'False').lower())
+DEBUG = True
+# DEBUG = bool(os.getenv('DEBUG', 'False').lower())
 # DEBUG = os.getenv('DEBUG', 'False').lower() in ['true', '1', 't']
-
 
 # ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='127.0.0.1, localhost').split(',')
 ALLOWED_HOSTS = ['158.160.76.66', '127.0.0.1', 'localhost', 'mykittygram.zapto.org']
