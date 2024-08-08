@@ -20,11 +20,10 @@
 git clone https://github.com/Anastasiia-Barkhatova/kittygram_final
 ```
 
-Создайть файл .env и заполнить его данными:
-- POSTGRES_DB=kittygram
-- POSTGRES_USER=kittygram_user
-- POSTGRES_PASSWORD=kittygram_password
-- DB_NAME=kittygram
+Создать файл .env и заполнить его данными:
+- POSTGRES_DB=<имя_базы_данных>
+- POSTGRES_USER=<имя_пользователя_базы_данных>
+- POSTGRES_PASSWORD=<пароль_пользователя_базы_данных>
 - DB_HOST=db
 - DB_PORT=5432
 
