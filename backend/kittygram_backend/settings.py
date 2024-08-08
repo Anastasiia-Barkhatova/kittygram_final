@@ -2,15 +2,16 @@
 import os
 from pathlib import Path
 
+from django.core.management.utils import get_random_secret_key
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY='django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
+SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'zvbfdgyutk')
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true',)
 
-DEBUG = True
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='127.0.0.1, localhost').split(',')
 
-ALLOWED_HOSTS = ['158.160.76.66', '127.0.0.1', 'localhost', 'mykittygram.zapto.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,17 +56,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
+SQLITE = os.getenv('SQLITE', 'False').lower() in ('true',)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'django'),
-        'USER': os.getenv('POSTGRES_USER', 'django'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', ''),
-        'PORT': os.getenv('DB_PORT', 5432)
+if 'DB_SQLITE' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('POSTGRES_DB', 'django'),
+            'USER': os.getenv('POSTGRES_USER', 'django'),
+            'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+            'HOST': os.getenv('DB_HOST', ''),
+            'PORT': os.getenv('DB_PORT', 5432)
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
