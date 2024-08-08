@@ -14,8 +14,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 DEBUG = bool(os.getenv('DEBUG', 'False').lower())
 # DEBUG = os.getenv('DEBUG', 'False').lower() in ['true', '1', 't']
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='127.0.0.1, localhost').split(',')
-# ALLOWED_HOSTS = ['158.160.76.66', '127.0.0.1', 'localhost', 'mykittygram.zapto.org']
+# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', default='127.0.0.1, localhost').split(',')
+ALLOWED_HOSTS = ['158.160.76.66', '127.0.0.1', 'localhost', 'mykittygram.zapto.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
