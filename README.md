@@ -32,7 +32,7 @@ git clone https://github.com/Anastasiia-Barkhatova/kittygram_final
 - ALLOWED_HOSTS='158.160.76.66,127.0.0.1,localhost,mykittygram.zapto.org'
 - DEBUG='True'
 
-Перейти в репозиторию backend:
+Перейти в репозиторий backend:
 
 ```bash
 cd backend
