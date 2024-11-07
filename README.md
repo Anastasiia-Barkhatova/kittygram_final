@@ -1,6 +1,6 @@
 [![Main Kittygram workflow](https://github.com/Anastasiia-Barkhatova/kittygram_final/actions/workflows/main.yml/badge.svg)](https://github.com/Anastasiia-Barkhatova/kittygram_final/actions/workflows/main.yml)
 
-### **Описание проекта Kittygram**
+### **Kittygram**
 
 > Kittygram - это сервис для публикации данных о котиках. Пользователи могут самостоятельно регистрироваться в сервисе, загружать фотографии с описанием котиков и смотреть питомцев других пользователей.
 
